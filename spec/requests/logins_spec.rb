@@ -7,5 +7,11 @@ describe "Logins" do
       visit root_path
       page.should have_content("Sign in")
     end
+
+    it "redirects guests to sign in" do
+      visit root_path
+
+      current_path.should == sign_in_path
+    end
   end
 end
