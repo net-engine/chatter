@@ -1,5 +1,5 @@
 Chatter::Application.routes.draw do
-  resources :messages
+  resources :messages, only: [:index]
 
   root to: 'messages#index'
 end
