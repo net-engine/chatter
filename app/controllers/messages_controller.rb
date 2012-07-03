@@ -6,6 +6,6 @@ class MessagesController < ApplicationController
   end
 
   def create
-    @message = Message.create params[:message]
+    @message = current_user.messages.create! params[:message]
   end
 end
