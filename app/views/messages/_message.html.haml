@@ -1,4 +1,6 @@
-.message
-  = message.content
-  .author-email= message.user.email
-  .timestamp= message.created_at
+%div[message]{class: "row"}
+  %div{class: "seven columns alpha content"}
+    = message.content
+  %div{class: "four columns offset-by-one omega details"}
+    .author-email= message.user.email
+    .timestamp= message_timestamp(message)
