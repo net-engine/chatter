@@ -42,4 +42,18 @@ describe "Signed in users" do
 
     page.should have_content("My new message.")
   end
+
+  it "see their email on messages they post" do
+    @user.messages.create(content: "Another message.")
+
+    visit root_path
+    find('.message .author-email').should have_content('demo@example.com')
+  end
+
+  it "see the timestamp on messages they post" do
+    @user.messages.create(content: "Yet another message.")
+
+    visit root_path
+    page.should have_css('.message .timestamp')
+  end
 end
