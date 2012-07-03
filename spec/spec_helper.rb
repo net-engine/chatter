@@ -11,7 +11,7 @@ require 'clearance/testing'
 # in spec/support/ and its subdirectories.
 Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
 
-# Capybara.javascript_driver = :webkit
+Capybara.javascript_driver = :webkit
 RSpec.configure do |config|
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
   config.infer_base_class_for_anonymous_controllers = false

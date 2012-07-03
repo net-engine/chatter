@@ -21,5 +21,5 @@ group :development, :test do
   gem 'pry'
   gem 'rspec-rails'
   gem 'simplecov', require: false
-  # gem 'capybara-webkit'
+  gem 'capybara-webkit'
 end
