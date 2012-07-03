@@ -34,4 +34,12 @@ describe "Signed in users" do
     visit root_path
     page.should have_content("Here's a lovely message.")
   end
+
+  it "can create new messages", js: true do
+    visit root_path
+    fill_in 'message_content', with: "My new message."
+    click_button 'Send'
+
+    page.should have_content("My new message.")
+  end
 end
