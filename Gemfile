@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'brakeman'
 gem 'clearance'
 gem 'haml-rails'
 gem 'jquery-rails'
@@ -15,12 +16,14 @@ end
 
 group :development, :test do
   gem 'capybara'
+  gem 'capybara-webkit'
   gem 'database_cleaner'
   gem 'factory_girl_rails'
+  gem 'guard'
+  gem 'guard-rspec'
   gem 'launchy'
   gem 'pry'
   gem 'rspec-rails'
   gem 'simplecov', require: false
-  gem 'capybara-webkit'
   gem 'shoulda'
 end
