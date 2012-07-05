@@ -40,7 +40,17 @@ describe "Signed in users" do
     fill_in 'message_content', with: "My new message."
     click_button 'Send'
 
-    page.should have_content("My new message.")
+    find("#messages").should have_content("My new message.")
+  end
+
+  it "puts new messages at the top", js: true do
+    FactoryGirl.create_list(:message, 5)
+
+    visit root_path
+    fill_in 'message_content', with: "The top message."
+    click_button 'Send'
+
+    find("#messages").find(".message").should have_content("The top message.")
   end
 
   it "see their email on messages they post" do

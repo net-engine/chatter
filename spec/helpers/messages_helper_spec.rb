@@ -9,14 +9,14 @@ describe MessagesHelper do
       helper.message_timestamp.should eql(" 7:00am")
     end
 
-    it "handles times today" do
+    it "handles times yesterday" do
       message = FactoryGirl.build_stubbed(:message)
       message.stub(:created_at) {DateTime.now.midnight - 7.hours}
       assign(:message, message)
       helper.message_timestamp.should eql(" 5:00pm yesterday")
     end
 
-    it "handles times today" do
+    it "handles times further in the past" do
       message = FactoryGirl.build_stubbed(:message)
       message.stub(:created_at) {DateTime.new(2001,2,3,4,5,6)}
       assign(:message, message)

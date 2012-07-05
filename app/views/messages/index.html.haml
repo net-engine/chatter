@@ -1,5 +1,5 @@
-%div{class: "row"}
+#new_message_row{class: "row"}
   = form_for Message.new, remote: true do |f|
     = f.text_field :content, placeholder: "Say something...", class: "ten columns"
     = f.submit "Send", class: "two columns omega"
-= render @messages
+#messages= render @messages

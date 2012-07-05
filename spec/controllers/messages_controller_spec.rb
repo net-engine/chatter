@@ -13,6 +13,14 @@ describe MessagesController do
       assigns(:messages).should eq([message])
     end
 
+    it "orders @messages from newest to oldest" do
+      message1 = FactoryGirl.create(:message)
+      message2 = FactoryGirl.create(:message)
+      message3 = FactoryGirl.create(:message)
+      get :index
+      assigns(:messages).should eq([message3, message2, message1])
+    end
+
     it "renders the index template" do
       get :index
       response.should render_template("index")
