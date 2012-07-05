@@ -9,4 +9,9 @@ FactoryGirl.define do
     password "password"
   end
 
+  factory :message do
+    user
+    content 'A lovely message'
+  end
+
 end
