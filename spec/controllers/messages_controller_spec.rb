@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 describe MessagesController do
+  render_views
   describe "GET index as an authenticated user" do
     before(:each) do
       sign_in
@@ -33,8 +34,25 @@ describe MessagesController do
     end
 
     it "assigns @message" do
-      post :create, :message => {content: "Message content"}, :format => 'js'
+      post :create, message: {content: "Message content"}, format: 'js'
       assigns(:message).should be_a(Message)
+    end
+  end
+
+  describe "SHOW JSON as an authenticated user" do
+    let(:message) {FactoryGirl.create(:message)}
+    before(:each) do
+      sign_in
+    end
+
+    it "assigns @message" do
+      get :show, id: message.id, format: 'json'
+      assigns(:message).should be_a(Message)
+    end
+
+    it "renders the show template" do
+      get :show, id: message.id, format: 'json'
+      response.should render_template("show")
     end
   end
 end

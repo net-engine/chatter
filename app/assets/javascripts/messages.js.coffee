@@ -1,3 +1,5 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
+pusher = new Pusher('5e882a17808180c618be')
+channel = pusher.subscribe('general-chat')
+channel.bind 'create_message', (data) ->
+  $("#messages").prepend HandlebarsTemplates['message'](data)
+  $("#new_message")[0].reset()
