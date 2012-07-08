@@ -26,6 +26,12 @@ describe MessagesController do
       get :index
       response.should render_template("index")
     end
+
+    it "renders the index template as JSON" do
+      get :index, format: 'json'
+      response.should render_template("index")
+    end
+
   end
 
   describe "POST create as an authenticated user" do
