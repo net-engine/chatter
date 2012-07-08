@@ -18,15 +18,20 @@ group :assets do
 end
 
 group :development, :test do
+  gem 'guard'
+  gem 'guard-rspec'
+  gem 'guard-jasmine'
+  gem 'jasminerice'
+  gem 'pry'
+  gem 'rspec-rails'
+end
+
+group :test do
   gem 'capybara'
   gem 'capybara-webkit'
   gem 'database_cleaner'
   gem 'factory_girl_rails'
-  gem 'guard'
-  gem 'guard-rspec'
   gem 'launchy'
-  gem 'pry'
-  gem 'rspec-rails'
   gem 'simplecov', require: false
-  gem 'shoulda'
+  gem 'shoulda-matchers'
 end

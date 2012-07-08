@@ -7,7 +7,7 @@ describe "Guests" do
     page.should have_content("Sign in")
   end
 
-  it "are redirected to /sign_in" do
+  it "are redirected to /sign_in", js: true do
     visit root_path
 
     current_path.should == sign_in_path

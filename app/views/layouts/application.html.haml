@@ -11,11 +11,13 @@
       - flash.each do |key, value|
         %div{:class => "flash #{key}"}= value
       #left_column{class: "three columns"}
-        %h1
-          Chatter
-          %h5
-            - if signed_in?
-              = current_user.email
-              = link_to "Sign out", sign_out_path, :method => :delete
+        .row
+          %h1
+            Chatter
+            %h5
+              - if signed_in?
+                = current_user.email
+                = link_to "Sign out", sign_out_path, :method => :delete
+        #online_members
       #right_column{class: "twelve columns offset-by-one"}
         = yield
